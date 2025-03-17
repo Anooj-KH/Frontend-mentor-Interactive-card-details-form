@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Interactive card details form</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="backgroundAside"></div>
+  <main>
+    <div class="content">
+      <div class="cardImage">
+        <div class="cardFront">
+          <img src="assets/card-logo.svg" alt="card-Logo">
+          <span id="numberCard">0000 0000 0000 0000</span>
+          <div>
+            <span id="nameCard">JANE APPLESEED</span>
+            <span id="monthCard">00</span>/<span id="yearCard">00</span>
+          </div>
+        </div>
+        <div class="cardBack">
+          <span id="cvcCard">000</span>
+        </div>
+      </div>
+      <div class="data">
+        <form novalidate class="formData show" id="dateForm">
+          <label for="name">cardholder name
+            <input type="text" name="name" id="name" placeholder="e.g. Jane Appleseed" required>
+            <span class="error"></span>
+          </label>
+          <label for="cardNumber">card number
+            <input type="text" name="cardNumber" id="cardNumber" placeholder="e.g. 1234 5678 9123 0000" minlength="19"
+              maxlength="19" pattern="[0-9\s]*" required>
+            <span class="error"></span>
+          </label>
+          <div class="shortInput">
+            <label for="monthDate">exp. date (mm/yy)
+              <div>
+                <input type="text" name="expDate" id="monthDate" placeholder="MM" maxlength="2" required>
+                <input type="text" name="expDate" id="yearDate" pattern="[0-9]{2}" placeholder="YY" maxlength="2"
+                  required>
+              </div>
+              <span class="error"></span>
+            </label>
+            <label for="cvc">cvc
+              <input type="text" name="cvc" id="cvc" pattern="[0-9]{3}" placeholder="e.g. 123" maxlength="3" required>
+              <span class="error"></span>
+            </label>
+          </div>
+          <input type="submit" value="Confirm" id="buttonConfirm">
+        </form>
+        <form id="thankForm">
+          <div id="thankMessage" class="thank hidden">
+            <img src="assets/icon-complete.svg" alt="complete">
+            <p>Thank you!</p>
+            <p>We´ve added your card details</p>
+            <input type="submit" value="Continue"></input>
+        </form>
+      </div>
+    </div>
+    </div>
+  </main>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>

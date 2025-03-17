@@ -1,0 +1,358 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Space Grotesk,sans-serif;
+    overflow: hidden;
+}
+
+.content {
+    height: 98vh;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.backgroundAside {
+    background: url('../assets/bg-main-desktop.png') no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 33vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+.grow {
+    animation: grow 1.2s linear;
+}
+
+@keyframes grow {
+    40% {
+        width: 100vw;
+    }
+
+    40%, 50% {
+        width: 100vw;
+    }
+
+    100% {
+        width: 33vw;
+        }
+}
+
+.data {
+    position: relative;
+}
+
+.cardImage, .data {
+    width: 50%;
+    margin: 0 3rem;
+}
+
+.cardFront, .cardBack {
+    border-radius: 0.5rem;
+    color: white;
+    height: 15rem;
+    max-width: 28rem;
+}
+
+.cardFront {
+    background: url('../assets/bg-card-front.png') no-repeat;
+    background-size: cover;
+    margin: auto;
+    padding: 0 1.8rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.cardFront > span:first-of-type {
+    /* align-self: center; */
+    font-size: 1.5em;
+    letter-spacing: 4px;
+}
+
+.cardFront div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardFront div :first-child {
+    flex-grow: 2;
+}
+
+.cardFront img {
+    width: 5rem;
+}
+
+.cardBack {
+    background: url('../assets/bg-card-back.png')  no-repeat;
+    background-size: 100% 100%;
+    font-size: 1.5em;
+    margin: 3rem 0 1rem auto;
+    padding: 3rem;
+    position: relative;
+}
+
+.cardBack span {
+    position: absolute;
+    top: 102px;
+    right: 50px;
+}
+
+.formData {
+    display: flex;
+    flex-flow: column wrap;
+    max-width: 25rem;
+    /* display: none; */
+}
+
+label {
+    margin: .6rem 0;
+    text-transform: uppercase;
+}
+input {
+    border: 1px solid hsl(279, 6%, 55%);
+    border-radius: .5rem;
+    font-family: inherit;
+    font-size: 1em;
+    height: 3rem;
+    margin-top: .8rem;
+    padding-left: 1rem;
+    width: 100%;
+}
+
+input:hover {
+    border: 1px solid hsl(249,99%,64%); 
+}
+
+.invalid {
+    border: 1px solid hsl(0, 100%, 66%);
+}
+
+.invalid:hover {
+    border: 1px solid hsl(0, 100%, 66%);
+}
+
+input:active:invalid {
+    outline: none;
+}
+
+.error {
+    font-size: .8rem;
+    color: hsl(0, 100%, 66%);
+    text-transform: none;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+.error.active {
+    padding: 0.3em;
+    opacity: 1;
+}
+
+.shortInput {
+    display: flex;
+    gap: .7rem;
+}
+
+.shortInput label:first-child {
+    flex-basis: 80%;
+}
+
+.shortInput div {
+    display: flex;
+    gap: .7rem;
+}
+
+input[type="submit"] {
+    background-color: hsl(278, 68%, 11%);
+    color: white;
+    font-size: 1.1em;
+}
+
+input[type="submit"]:hover {
+    opacity: .9;
+    cursor: pointer;
+}
+
+.errorButton {
+    animation: shake .7s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+.hidden{
+    transform: translateX(100vw);
+    transition: transform 2s ease;
+}
+
+.show{
+    transform: translateX(0%);
+    transition: transform 2s ease;
+}
+
+.thank {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+.thank p:first-of-type {
+    font-size: 1.8em;
+    margin-bottom: -.6rem;
+    text-transform: uppercase;
+}
+
+.thank p:last-of-type{
+    color: hsl(278, 68%, 11%);
+    opacity: .8;
+}
+
+.thank input {
+    width: 130%;
+}
+
+@keyframes shake {
+    10%,90% {
+        transform: translate3d(-1px,0,0);
+        background:hsl(0, 100%, 66%);
+    }
+
+    20%,80% {
+        transform: translate3d(2px,0,0)
+    }
+
+    30%,50%,70% {
+        transform: translate3d(-4px,0,0)
+    }
+
+    40%,60% {
+        transform: translate3d(4px,0,0)
+    }
+}
+
+@media only screen and (width <= 1400px) {
+    .cardFront, .cardBack {
+        height: 13rem;
+        max-width: 24rem;
+    }
+    .cardFront > span:first-of-type, .cardBack {
+        font-size: 1.3rem;
+    }
+    
+    .cardBack span {
+        position: absolute;
+        top: 90px;
+        right: 50px;
+    }
+}
+
+@media only screen and (width <= 1340px) {
+    .formData {
+        max-width: 23rem;
+        margin: auto;
+    }
+    .cardImage, .data {
+        width: 50%;
+        margin: 0 2rem;
+    }
+    .shortInput label:first-child {
+        flex-basis: 99%;
+    }
+    
+}
+
+@media only screen and (width < 900px){
+    .thank input {
+        width: 100%;
+    }
+}
+
+@media only screen and (width <= 750px) {
+    .backgroundAside {
+        background: url('../assets/bg-main-mobile.png') no-repeat;
+        background-size: cover;
+        height: 40vh;
+        width: 100%;
+    }
+    .content {
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+    .cardImage, .data {
+        width: 100%;
+    }
+
+    .cardImage{
+        position: relative;
+    }
+
+    .cardFront, .cardBack {
+        font-size: .8em;
+        height: 12rem;
+        width: 21rem;
+    }
+    .cardFront {
+        position: absolute;
+        top: 10px;
+        left: 100px;
+    }
+
+    .cardFront img {
+        width: 4rem;
+    }
+    
+    
+    .cardBack {
+        font-size: 1.1em;
+        top: -150px;
+        left: -80px;
+        z-index: -1;
+    }
+
+    .cardBack span {
+        top: 83px;
+        right: 50px;
+    }
+
+    .cardFront > span:first-of-type {
+        font-size: 1.4em;
+    }
+
+    .data {
+        padding: 1rem;
+    }
+
+    .formData{
+        max-width: 100%;
+    }
+    .thank {
+        top: 0;
+        left: 35%;
+    }
+    .thank input {
+        width: 120%;
+    }
+    .hidden {
+        transform: translateX(200vw);
+    }
+}
+
+@media only screen and (width <= 580px){
+    .cardFront {
+        left: 50px;
+    }
+    .cardBack {
+        left: -40px;
+    }
+
+}
